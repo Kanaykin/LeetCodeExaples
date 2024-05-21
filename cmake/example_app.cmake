@@ -1,7 +1,7 @@
-function(MAKE_EXAMPLE_APP proj_name)
+function(MAKE_EXAMPLE_APP name)
     # message(STATUS "MAKE_EXAMPLE_APP=${include_modules}")
     # set the project name
-    set(PROJECT_NAME ${proj_name})
+    set(PROJECT_NAME ${name})
     project(${PROJECT_NAME})
 
     message(STATUS "CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}")
