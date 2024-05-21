@@ -1,0 +1,6 @@
+# LeetCodeExaples
+
+
+## Installation
+
+cmake .. -GXcode
