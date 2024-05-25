@@ -11,8 +11,8 @@ int main()
     
     const double tFast = tmr.elapsed();
     std::cout << "!!! mainFast time elapsed " << tFast << std::endl;
-
     tmr.reset();
+    
     mainStd();
 
     const double tStd = tmr.elapsed();

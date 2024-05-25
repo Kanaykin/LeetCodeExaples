@@ -1,35 +1,23 @@
 #include <string>
 #include <set>
 #include <iostream>
-// #include "../helpers/MemoryUsage.h"
-// #include "../helpers/TimeDuration.h"
+#include "helpers/TimeDuration.h"
+
+int mainFast();
+int mainSlow();
 
 int main()
 {
-    std::string s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ abcdefghijklmnopqrstuvwxyzABCD";
+    helpers::Timer tmr;
+    mainFast();
 
-    std::set<char> chars;
-    int maxval = 0;
-    for(int i = 0; i < s.length(); ++i)
-    {
-        for(int j = i; j < s.length(); ++j)
-        {
-            if(chars.find(s[j]) == chars.end())
-            {
-                chars.insert(s[j]);
-                std::cout << " s[j] " << s[j] << " \n";
-            }
-            else
-            {
-                maxval = std::max(maxval, static_cast<int>(chars.size()));
-                std::cout << " break " << maxval << " \n";
-                chars.clear();
-                break;
-            }
-            maxval = std::max(maxval, static_cast<int>(chars.size()));
-            std::cout << " last " << maxval << " \n";
-        }
-    }
-    return maxval;
+    const double tFast = tmr.elapsed();
+    std::cout << "!!! mainFast time elapsed " << tFast << std::endl;
+    tmr.reset();
+
+    mainSlow();
+    const double tSlow = tmr.elapsed();
+    std::cout << "!!! tSlow time elapsed " << tSlow << std::endl;
+
     return 0;
 }
