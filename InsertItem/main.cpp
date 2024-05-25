@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "helpers/TimeDuration.h"
 
 // extern template class _LIBCPP_EXTERN_TEMPLATE_TYPE_VIS __vector_base_common<true>;
 
@@ -28,8 +29,13 @@ int searchInsert(std::vector<int>& nums, int target)
 
 int main()
 {
+    helpers::Timer tmr;
+
     std::vector<int> nums = {1,3,5,6};
     const auto result = searchInsert(nums, 2);
+
+    const double t = tmr.elapsed();
+    std::cout << "!!! time elapsed " << t << std::endl;
 
     return 0;
 }

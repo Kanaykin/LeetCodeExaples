@@ -1,5 +1,4 @@
 function(MAKE_EXAMPLE_APP name)
-    # message(STATUS "MAKE_EXAMPLE_APP=${include_modules}")
     # set the project name
     set(PROJECT_NAME ${name})
     project(${PROJECT_NAME})
@@ -7,6 +6,9 @@ function(MAKE_EXAMPLE_APP name)
     message(STATUS "CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}")
 
     set(PROJECT_SOURCE_DIR .)
+    set(ROOT_DIR ..)
+
+    message(STATUS "ROOT_DIR ${ROOT_DIR}")
 
     #include(group_files)
     file(GLOB_RECURSE SRC
@@ -15,6 +17,7 @@ function(MAKE_EXAMPLE_APP name)
     )
 
     #group_files()
+    include_directories(${ROOT_DIR})
 
     add_executable(${PROJECT_NAME} ${SRC})
     #target_link_libraries(${PROJECT_NAME} ${LIBRARIES})

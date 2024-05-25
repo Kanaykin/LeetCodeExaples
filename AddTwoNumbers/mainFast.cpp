@@ -1,5 +1,3 @@
-#include <vector>
-#include <algorithm>
 #include "helpers.h"
 
 // l1 = [2,4,3]
@@ -8,7 +6,7 @@
 // l1 = [9,9,9,9,9,9,9]
 // l2 = [9,9,9,9]
 
-int main()
+int mainFast()
 {
 
     ListNode* in1 = vector2List({2,4,9});

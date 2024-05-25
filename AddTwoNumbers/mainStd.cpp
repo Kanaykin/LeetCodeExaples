@@ -8,7 +8,7 @@
 // l1 = [9,9,9,9,9,9,9]
 // l2 = [9,9,9,9]
 
-int main()
+int mainStd()
 {
 
     ListNode* in1 = vector2List({2,4,9});
